@@ -21,11 +21,8 @@ Homestead.yaml
 Homestead.json
 /.vagrant
 .phpunit.result.cache
-<<<<<<< HEAD
 
 # taskoj specific
 .c9/
 .node-gyp/
 .local/
-=======
->>>>>>> eb1ac650081be0c1f3ef3a8ea62512d7fcda7920
