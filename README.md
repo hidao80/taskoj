@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # taskoj（タスコイ）：タスクツリー型チーム管理システム
 
 [![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
@@ -57,3 +58,7 @@
 ### License
 
 [MIT ライセンス](http://opensource.org/licenses/MIT)です。ライセンスが許す範囲での複製・頒布が可能です。詳しくは[ライセンスファイル](http://opensource.org/licenses/MIT)をご確認下さい。
+=======
+# taskolisto
+タスクツリー型チーム管理システム
+>>>>>>> eb1ac650081be0c1f3ef3a8ea62512d7fcda7920
