@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
                 $table->string( 'password', 64 );
                 $table->string( 'team', 64 );
                 $table->string( 'remember_token' );
+                $table->tinyInteger( 'user_rank' );  // 権限max=0(admin), 最弱min=9(guest):
                 $table->timestamps();
             } );
     }

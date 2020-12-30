@@ -23,6 +23,13 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $hidden = array('password', 'remember_token');
 
+	/**
+	 * createするとき、以下の列は引数を必要としない。
+	 *
+	 * @var array
+	 */
+    protected $guarded = array('id', "updated_at", "created_at");
+
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = Hash::make($value);

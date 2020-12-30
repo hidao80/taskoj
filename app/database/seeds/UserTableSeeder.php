@@ -7,10 +7,19 @@ class UserTableSeeder extends Seeder
         DB::table( 'users' )->delete();
  
         User::create( array(
+            'username' => 'admin',
+            'password' => 'adminadmin',
+            'team' => 'default',
+            'remember_token' => "",
+            'user_rank' => 0,
+        ) );
+
+        User::create( array(
             'username' => 'test',
             'password' => 'test',
-            'team' => 'test',
+            'team' => 'default',
             'remember_token' => "",
+            'user_rank' => 8,
         ) );
     }
  
