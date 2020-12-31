@@ -5,8 +5,11 @@
 
 @if ( $type === 'add' )
     {{ Form::open(['action' => 'UserController@create']) }}
-    {{ Form::label('username', 'ユーザー名：') }}
-    {{ Form::text('username', '') }}
+    {{ Form::label('user_name', 'ユーザー名：') }}
+    {{ Form::text('user_name', '') }}
+    <br>
+    {{ Form::label('display_name', 'ユーザー表示名：') }}
+    {{ Form::text('display_name', '') }}
     <br>
     {{ Form::label('password', 'パスワード：') }}
     {{ Form::password('password') }}
@@ -18,8 +21,11 @@
     {{ Form::text('user_rank', Input::old('user_rank', '')) }}
 @elseif ( $type === 'update' )
     {{ Form::open(['action' => 'UserController@update']) }}
-    {{ Form::label('username', 'ユーザー名：') }}
-    {{ Form::text('username', Input::old('username', '')) }}
+    {{ Form::label('user_name', 'ユーザー名：') }}
+    {{ Form::text('user_name', Input::old('user_name', '')) }}
+    <br>
+    {{ Form::label('display_name', 'ユーザー表示名：') }}
+    {{ Form::text('display_name', '') }}
     <br>
     {{ Form::label('password', 'パスワード：') }}
     {{ Form::password('password') }}
@@ -31,8 +37,8 @@
     {{ Form::text('user_rank', Input::old('user_rank', '')) }}
 @elseif ( $type === 'delete' )
     {{ Form::open(['action' => 'UserController@delete']) }}
-    {{ Form::label('username', 'ユーザー名：') }}
-    {{ Form::text('username', '') }}
+    {{ Form::label('user_name', 'ユーザー名：') }}
+    {{ Form::text('user_name', '') }}
     <br>
     {{ Form::label('team', 'チーム名：') }}
     {{ Form::text('team', Input::old('team', '')) }}
