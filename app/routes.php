@@ -59,4 +59,16 @@ Route::group(['before' => 'auth'], function() {
             return View::make( 'user', ['type' => 'delete', 'user_rank' => Auth::user()->user_rank]);
         }] );
 
+    Route::get( 'task/edit', function()
+        {
+            return View::make( 'task_edit', [
+                'task_id' => null, 
+                'user' => Auth::user(), 
+                'team_info' => array('staff' => User::where('team', Auth::user()->team)->get(), 'staff_id' => []),
+                'record' => null,
+                ]);
+        } );
+    Route::get( 'task/edit/{id}', ['uses' => 'TaskController@getId'] )->where('id', '[0-9]+');
+    Route::post( 'task/edit', ['uses' => 'TaskController@edit'] );
+
 });

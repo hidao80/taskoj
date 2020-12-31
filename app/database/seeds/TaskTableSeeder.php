@@ -6,13 +6,15 @@ class TaskTableSeeder extends Seeder
     {
         DB::table( 'tasks' )->delete();
  
-        Task::create( array(
+        $parent = Task::create( array(
             'done' => false,
             'title' => 'タスクA',
             'deadline' => '2021-01-01',
             'priority' => 3,
             'note' => 'タスクAの内容とやったこと',
             'time_span' => 3.5,
+            'parent_task_id' => null,
+            'user_rank' => 0,
         ) );
  
         Task::create( array(
@@ -22,6 +24,8 @@ class TaskTableSeeder extends Seeder
             'priority' => 3,
             'note' => 'タスクBの内容とやったこと',
             'time_span' => 1,
+            'parent_task_id' => $parent->id,
+            'user_rank' => 8,
         ) );
  
         Task::create( array(
@@ -31,6 +35,8 @@ class TaskTableSeeder extends Seeder
             'priority' => 1,
             'note' => 'タスクCの内容とやったこと',
             'time_span' => 2.25,
+            'parent_task_id' => null,
+            'user_rank' => 8,
         ) );
 
         /**

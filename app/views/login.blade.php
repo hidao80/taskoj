@@ -1,3 +1,6 @@
+@if ( $errors->any() )
+    {{ implode('', $errors->all('<div>:message</div>')) }}
+@endif
 @if ( Auth::guest() )
     未ログイン
 @else
@@ -5,8 +8,8 @@
 @endif
 
 {{ Form::open(['action' => 'AuthController@login']) }}
-{{ Form::label('username', 'ユーザー名：') }}
-{{ Form::text('username', Input::old('username', '')) }}
+{{ Form::label('user_name', 'ユーザー名：') }}
+{{ Form::text('user_name', Input::old('user_name', '')) }}
 <br>
 {{ Form::label('password', 'パスワード：') }}
 {{ Form::password('password') }}

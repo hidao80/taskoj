@@ -73,6 +73,8 @@ return array(
 	"url"                  => "The :attribute format is invalid.",
 	"timezone"             => "The :attribute must be a valid zone.",
 
+	"nullable_exists" => "The selected :attribute is invalid.",
+	
 	/*
 	|--------------------------------------------------------------------------
 	| Custom Validation Language Lines

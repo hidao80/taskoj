@@ -118,6 +118,8 @@ return [
     'url'                  => ':attributeは、有効なURL形式で指定してください。',
     'uuid'                 => ':attributeは、有効なUUIDでなければなりません。',
 
+    'nullable_exists' => '選択された:attributeは、有効ではありません。',
+
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines
