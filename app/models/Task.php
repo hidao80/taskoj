@@ -29,4 +29,9 @@ class Task extends Eloquent implements RemindableInterface {
 	 * @var array
 	 */
     protected $guarded = array('id', "updated_at", "created_at");
+
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = Hash::make($value);
+    }
 }
