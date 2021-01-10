@@ -11,7 +11,7 @@ class AuthController extends BaseController {
         Log::debug('auth::attempt($input) = '. $authResult);
 
         if ( $authResult === 'true' ) {
-            return Redirect::to( '/hello' );
+            return Redirect::to( 'task/list' );
         }
         return Redirect::back()->withErrors(['ログイン認証に失敗しました。'])->withInput();
 	}
