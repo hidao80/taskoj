@@ -17,10 +17,12 @@ class CreateUsersTable extends Migration
         Schema::create( 'users', function($table)
             {
                 $table->increments( 'id' );
-                $table->string( 'username', 20 );
+                $table->string( 'user_name', 20 );
+                $table->string( 'display_name', 60 );
                 $table->string( 'password', 64 );
                 $table->string( 'team', 64 );
                 $table->string( 'remember_token' );
+                $table->tinyInteger( 'user_rank' )->unsigned();  // 権限max=0(admin), 最弱min=9(guest):
                 $table->timestamps();
             } );
     }

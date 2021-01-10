@@ -5,26 +5,23 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-define('ADMIN_USER_ID', 1);
+class Task extends Eloquent implements RemindableInterface {
 
-class User extends Eloquent implements UserInterface, RemindableInterface {
-
-    
-	use UserTrait, RemindableTrait;
+	use RemindableTrait;
 
 	/**
 	 * The database table used by the model.
 	 *
 	 * @var string
 	 */
-	protected $table = 'users';
+	protected $table = 'tasks';
 
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *
 	 * @var array
 	 */
-	protected $hidden = array('password', 'remember_token');
+//	protected $hidden = array('password', 'remember_token');
 
 	/**
 	 * createするとき、以下の列は引数を必要としない。
@@ -36,13 +33,5 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = Hash::make($value);
-    }
-    
-    public static function getUserList() {
-        $displayName = [];
-        $users = User::where('team', Auth::user()->team)->select('display_name', 'id')->get()->toArray();
-        Log::debug('users: '. var_export($users, true));
-
-        return $users;
     }
 }

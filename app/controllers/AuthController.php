@@ -2,30 +2,18 @@
 
 class AuthController extends BaseController {
 
-	/*
-	|--------------------------------------------------------------------------
-	| Default Home Controller
-	|--------------------------------------------------------------------------
-	|
-	| You may wish to use controllers instead of, or in addition to, Closure
-	| based routes. That's great! Here is an example controller method to
-	| get you started. To route to this controller, just add the route:
-	|
-	|	Route::get('/', 'HomeController@showWelcome');
-	|
-	*/
-
 	public function login()
 	{
-        $inputs = Input::only('username', 'password', 'team');
+        $inputs = Input::only('user_name', 'password', 'team');
         Log::debug($inputs);
+
         $authResult = Auth::attempt($inputs) ? "true" : "false";
-        $log = 'auth::attempt($input) = '. $authResult;
-        Log::debug($log);
-        if ( Auth::attempt($inputs) ) {
-            return Redirect::to( '/hello' );
+        Log::debug('auth::attempt($input) = '. $authResult);
+
+        if ( $authResult === 'true' ) {
+            return Redirect::to( 'task/list' );
         }
-        return Redirect::back()->withInput();
+        return Redirect::back()->withErrors(['ログイン認証に失敗しました。'])->withInput();
 	}
 
 	public function logout()
